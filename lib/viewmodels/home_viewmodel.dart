@@ -12,6 +12,9 @@ class HomeModel extends BaseModel{
 
   void incrementCounter(){
      counter++;
+
+     
+
      setState(ViewState.Idle);
   }
 

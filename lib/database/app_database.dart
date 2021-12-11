@@ -1,4 +1,4 @@
-import 'package:flutter_starter_app/services/app_doc_dir_service.dart';
+import 'package:flutter_starter_app/database/app_doc_dir_service.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
 
