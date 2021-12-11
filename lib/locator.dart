@@ -10,6 +10,8 @@ void setupLocator() {
 
    //navigation service for global app context
    locator.registerLazySingleton(() => NavigationService());
+
+
    locator.registerFactory(() => HomeModel());
 
 

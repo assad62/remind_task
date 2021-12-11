@@ -1,4 +1,4 @@
-package com.mohammadassad.notlar.notlar_flutter
+package com.mohammadassad.remind.task
 
 import io.flutter.embedding.android.FlutterActivity
 

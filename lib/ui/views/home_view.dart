@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_starter_app/utils/constants.dart';
 import '../../common/base_view.dart';
 import '../../viewmodels/home_viewmodel.dart';
 
@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
             Scaffold(
               appBar: AppBar(
 
-                title: Text("My Home Page"),
+                title: Text(Constants.AppName),
               ),
               body: Center(
 
