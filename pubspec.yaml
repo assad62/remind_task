@@ -26,6 +26,7 @@ dependencies:
   google_fonts: ^2.1.0
   rxdart: ^0.27.3
   table_calendar: ^3.0.3
+  path_provider: ^2.0.8
   flutter:
     sdk: flutter
 

@@ -21,14 +21,7 @@ class HomeView extends StatelessWidget {
 
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    StreamBuilder(stream: model.rxCounter, builder: (context, AsyncSnapshot<int> snapshot){
-                      return TextButton(
-                          child: Text('RxDart button. Counter Pressed ${snapshot.data} times'),
-                          onPressed: () {
-                            model.updateRxCounter();
-                          }
-                      );
-                    }),
+                    
                     Text(
                       'You have pushed the button this many times:',
                     ),

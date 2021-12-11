@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_starter_app/common/navigation_service.dart';
 import 'package:flutter_starter_app/ui/router.dart';
 import 'package:flutter_starter_app/ui/views/home_view.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-
 import '../locator.dart';
 
 class MyApp extends StatelessWidget {
