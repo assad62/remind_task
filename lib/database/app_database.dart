@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_starter_app/database/app_doc_dir_service.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
@@ -14,7 +16,9 @@ class AppDatabase {
   }
 
   static Future<Database> create() async {
-    String dbPath = "${await AppDocDirService().getAppDocDirectory()}/remintask.db" ;
+    Directory docDir = await AppDocDirService().getAppDocDirectory();
+    String dbPath = "${docDir.path}/remintask.db" ;
+    print("db path is $dbPath");
     DatabaseFactory dbFactory = databaseFactoryIo;
     Database db = await dbFactory.openDatabase(dbPath);
     return db;
