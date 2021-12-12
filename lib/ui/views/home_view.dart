@@ -1,9 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_starter_app/ui/views/today_view.dart';
 import 'package:flutter_starter_app/utils/constants.dart';
 import '../../common/base_view.dart';
 import '../../viewmodels/home_viewmodel.dart';
+import 'calendar_view.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
+
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  static  List<Widget> _pages = <Widget>[
+   TodayView(),
+   CalendarView()
+
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -12,34 +35,31 @@ class HomeView extends StatelessWidget {
         builder: (context, model, children) =>
             Scaffold(
               appBar: AppBar(
-
                 title: Text(Constants.AppName),
               ),
-              body: Center(
-
-                child: Column(
-
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    
-                    Text(
-                      'You have pushed the button this many times:',
+              body:_pages.elementAt(_selectedIndex) ,
+              bottomNavigationBar: BottomNavigationBar(
+                selectedItemColor: Colors.black,
+                currentIndex: _selectedIndex,
+                onTap: _onItemTapped,
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.dashboard_customize,
                     ),
-                    Text(
-                      '${model.counter}',
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .headline4,
+                    label: 'Today',
+                  ),
+                  BottomNavigationBarItem(
+
+                    icon: Icon(
+                      Icons.event_note,
                     ),
-                  ],
-                ),
+                    label: 'Calendar',
+                  ),
+
+                ],
               ),
-              floatingActionButton: FloatingActionButton(
-                onPressed: model.incrementCounter,
-                tooltip: 'Increment',
-                child: Icon(Icons.add),
-              ), // This trailing comma makes auto-formatting nicer for build methods.
+
             )
 
 
