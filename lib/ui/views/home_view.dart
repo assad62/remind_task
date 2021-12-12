@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_starter_app/ui/views/today_view.dart';
 import 'package:flutter_starter_app/utils/constants.dart';
@@ -34,7 +35,11 @@ class _HomeViewState extends State<HomeView> {
         builder: (context, model, children) =>
             Scaffold(
               appBar: AppBar(
-                title: Text(Constants.AppName),
+                elevation: 0,
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.black,
+                centerTitle: false,
+                title: Text(Constants.AppName, style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
               ),
               body:_pages.elementAt(_selectedIndex) ,
               bottomNavigationBar: BottomNavigationBar(
