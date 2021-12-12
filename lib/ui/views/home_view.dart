@@ -24,7 +24,6 @@ class _HomeViewState extends State<HomeView> {
   static  List<Widget> _pages = <Widget>[
    TodayView(),
    CalendarView()
-
   ];
 
 

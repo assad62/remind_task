@@ -5,18 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1689cf6c-20c4-48d0-bba1-b8336d5e7fc8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/flutter_starter_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flutter_starter_app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/viewmodels/calendar_viewmodel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/viewmodels/today_viewmodel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/database/app_database.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/database/app_database.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/locator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/locator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/views/calendar_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/views/calendar_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/views/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/views/home_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/viewmodels/home_viewmodel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/viewmodels/home_viewmodel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/views/today_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/views/today_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/homeuser2/.android/avd/Pixel_XL_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/mohammadassad/.android/avd/Pixel_2_API_30.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
