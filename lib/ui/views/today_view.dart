@@ -11,6 +11,11 @@ class TodayView extends StatelessWidget {
           body: Center(
             child: Text("Today"),
           ),
+          floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black,
+          onPressed: model.addNewTask,
+          child: Icon(Icons.add),
+         ),
         ));
   }
 }
