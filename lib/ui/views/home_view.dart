@@ -1,7 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_starter_app/ui/views/today_view.dart';
 import 'package:flutter_starter_app/utils/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../common/base_view.dart';
 import '../../viewmodels/home_viewmodel.dart';
 import 'calendar_view.dart';
@@ -33,37 +37,41 @@ class _HomeViewState extends State<HomeView> {
     return BaseView<HomeModel>(
         onModelReady: (model) => model.onFirstLoad(),
         builder: (context, model, children) =>
-            Scaffold(
-              appBar: AppBar(
-                elevation: 0,
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-                centerTitle: false,
-                title: Text(Constants.AppName, style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
-              ),
-              body:_pages.elementAt(_selectedIndex) ,
-              bottomNavigationBar: BottomNavigationBar(
-                selectedItemColor: Colors.black,
-                currentIndex: _selectedIndex,
-                onTap: _onItemTapped,
-                items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.dashboard_customize,
+            SafeArea(
+              top: false,
+              child: Scaffold(
+                appBar: AppBar(
+                  elevation: 0,
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  centerTitle: false,
+                  title: Text(Constants.AppName, style: GoogleFonts.pacifico(
+                      textStyle: TextStyle(color: Colors.black, letterSpacing: .85, fontStyle: FontStyle.normal, fontSize: 28),)
+                 )),
+                body:_pages.elementAt(_selectedIndex) ,
+                bottomNavigationBar: BottomNavigationBar(
+                  selectedItemColor: Colors.black,
+                  currentIndex: _selectedIndex,
+                  onTap: _onItemTapped,
+                  items: const <BottomNavigationBarItem>[
+                    BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.dashboard_customize,
+                      ),
+                      label: 'Today',
                     ),
-                    label: 'Today',
-                  ),
-                  BottomNavigationBarItem(
+                    BottomNavigationBarItem(
 
-                    icon: Icon(
-                      Icons.event_note,
+                      icon: Icon(
+                        Icons.event_note,
+                      ),
+                      label: 'Calendar',
                     ),
-                    label: 'Calendar',
-                  ),
 
-                ],
+                  ],
+                ),
+
               ),
-
             )
 
 
