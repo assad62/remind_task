@@ -30,7 +30,7 @@ class CreateTaskView extends StatelessWidget{
                FormBuilderDateTimePicker(
                  name: 'date',
                  alwaysUse24HourFormat: false,
-                 format: DateFormat("hh:mm a"),
+                 format: DateFormat("yyyy-MM-dd hh:mm a"),
                  inputType: InputType.both,
                  decoration: InputDecoration(
                    labelText: 'Time',
@@ -81,7 +81,23 @@ class CreateTaskView extends StatelessWidget{
                  decoration: const InputDecoration(labelText: 'Pick Photos'),
                  maxImages: 1,
                ),
+               FormBuilderCheckbox(
+                 name: 'accept_terms',
+                 initialValue: false,
 
+                 title: RichText(
+                   text: TextSpan(
+                     children: [
+                       TextSpan(
+                         text: 'Set Reminder ?',
+                         style: TextStyle(color: Colors.black, fontSize: 18),
+                       ),
+
+                     ],
+                   ),
+                 ),
+
+               ),
                const SizedBox(height: 50),
                SizedBox(
                  width:200,
