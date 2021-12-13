@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_starter_app/ui/views/create_task_view.dart';
 import 'views/home_view.dart';
 
 
@@ -6,6 +7,7 @@ class AppRoutes{
   static const String homeRoute ="home";
   static const String loginPageRoute = "login";
   static const String newTaskPageRoute = "new_task";
+  static const String createTaskPageRoute = "create_task";
 }
 
 class AppRouter {
@@ -13,6 +15,8 @@ class AppRouter {
     switch (settings.name) {
       case AppRoutes.homeRoute:
         return MaterialPageRoute(builder: (_) => HomeView());
+      case AppRoutes.createTaskPageRoute:
+        return MaterialPageRoute(builder: (_) => CreateTaskView());
 
       default:
         return MaterialPageRoute(
