@@ -15,7 +15,8 @@ class AppDatabase {
   static Future<Database> create() async {
     Directory docDir = await AppDocDirService().getAppDocDirectory();
     String dbPath = "${docDir.path}/remintask.db" ;
-    print("db path is $dbPath");
+
+
     DatabaseFactory dbFactory = databaseFactoryIo;
     Database db = await dbFactory.openDatabase(dbPath);
     return db;
