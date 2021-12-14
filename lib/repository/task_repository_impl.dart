@@ -1,7 +1,11 @@
 import 'package:flutter_starter_app/models/task_model.dart';
 import 'package:flutter_starter_app/repository/task_repository.dart';
+import 'package:flutter_starter_app/services/task_service_impl.dart';
 
-class TaskRepoImpl extends ITaskRepository{
+class TaskRepo extends ITaskRepository{
+
+  var _service = TaskService();
+
   @override
   Future<void> deleteTask(String taskId) {
     // TODO: implement deleteTask
@@ -21,9 +25,9 @@ class TaskRepoImpl extends ITaskRepository{
   }
 
   @override
-  Future<void> insertTask(Map taskFormData) {
-    // TODO: implement insertTask
-    throw UnimplementedError();
+  Future<void> insertTask(Map taskFormData) async {
+
+    await _service.insertTask(taskFormData);
   }
 
   @override

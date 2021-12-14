@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_starter_app/common/base_view.dart';
+import 'package:flutter_starter_app/viewmodels/create_task_viewmodel.dart';
 import 'package:form_builder_image_picker/form_builder_image_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -11,7 +13,10 @@ class CreateTaskView extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return BaseView<CreateTaskViewModel>(
+        onModelReady: (model) => model.onFirstLoad(),
+    builder: (context, model, children) =>
+        Scaffold(
        appBar:  AppBar(
            elevation: 0,
            backgroundColor: Colors.white,
@@ -84,7 +89,6 @@ class CreateTaskView extends StatelessWidget{
                FormBuilderCheckbox(
                  name: 'accept_terms',
                  initialValue: false,
-
                  title: RichText(
                    text: TextSpan(
                      children: [
@@ -112,7 +116,7 @@ class CreateTaskView extends StatelessWidget{
                    onPressed: () async{
                      if (_formKey.currentState?.saveAndValidate() == true) {
 
-                       // await model.addToTaskList(_formKey.currentState!.value);
+                         await model.addToTaskList(_formKey.currentState!.value);
                        // Navigator.pop(context);
                      }
                    },
@@ -123,7 +127,8 @@ class CreateTaskView extends StatelessWidget{
            ),
          ),
        ),
-     );
+     )
+    );
   }
 
 }

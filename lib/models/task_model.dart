@@ -1,10 +1,15 @@
 class TaskModel {
-  String uuid;
+  DateTime dateTime;
   String title;
   String description;
   bool remindMe;
   String? attachmentPath;
 
 
-  TaskModel({required this.uuid, required this.title, required this.description, required this.remindMe, this.attachmentPath});
+  TaskModel({
+             required this.dateTime,
+             required this.title,
+             required this.description,
+             required this.remindMe,
+             this.attachmentPath});
 }

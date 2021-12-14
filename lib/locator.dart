@@ -1,4 +1,5 @@
 import 'package:flutter_starter_app/viewmodels/calendar_viewmodel.dart';
+import 'package:flutter_starter_app/viewmodels/create_task_viewmodel.dart';
 import 'package:flutter_starter_app/viewmodels/today_viewmodel.dart';
 import 'package:get_it/get_it.dart';
 import 'common/navigation_service.dart';
@@ -18,6 +19,6 @@ void setupLocator() {
 
    locator.registerFactory(() => TodayViewModel());
    locator.registerFactory(() => CalendarViewModel());
-
+   locator.registerFactory(() => CreateTaskViewModel());
 
 }
