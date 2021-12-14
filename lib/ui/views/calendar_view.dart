@@ -15,6 +15,14 @@ class CalendarView extends StatelessWidget {
         onModelReady: (model) => model.onFirstLoad(),
         builder: (context, model, children) => Scaffold(
               body: TableCalendar(
+                headerStyle: HeaderStyle(
+
+                  formatButtonShowsNext: true,
+                  formatButtonVisible: false,
+                  titleCentered: true,
+                  headerPadding: EdgeInsets.only(bottom: 16),
+                  headerMargin: EdgeInsets.zero,
+                ),
                 selectedDayPredicate: (day) {
                   // Use `selectedDayPredicate` to determine which day is currently selected.
                   // If this returns true, then `day` will be marked as selected.
