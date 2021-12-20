@@ -8,7 +8,9 @@ class BaseView<T extends BaseModel> extends StatefulWidget {
   final Widget Function(BuildContext context, T model, Widget? child) builder;
   final Function(T) onModelReady;
 
-  BaseView({required this.builder, required this.onModelReady});
+  final Function(T)? initPassedData;
+
+  BaseView({required this.builder, required this.onModelReady , this.initPassedData});
 
   @override
   _BaseViewState<T> createState() => _BaseViewState<T>();
@@ -19,6 +21,10 @@ class _BaseViewState<T extends BaseModel> extends State<BaseView<T>> {
 
   @override
   void initState() {
+
+    if(widget.initPassedData !=null){
+       widget.initPassedData!(model);
+    }
     widget.onModelReady(model);
     super.initState();
   }
