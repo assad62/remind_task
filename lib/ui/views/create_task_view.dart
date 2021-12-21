@@ -78,16 +78,16 @@ class CreateTaskView extends StatelessWidget{
                        ),
                        //borderSide: const BorderSide(),
                      ),
-                     labelText: 'Description'
+                     labelText: 'description'
                  ),
                ),
                FormBuilderImagePicker(
-                 name: 'photos',
+                 name: 'attachmentPhoto',
                  decoration: const InputDecoration(labelText: 'Pick Photos'),
                  maxImages: 1,
                ),
                FormBuilderCheckbox(
-                 name: 'accept_terms',
+                 name: 'remindMe',
                  initialValue: false,
                  title: RichText(
                    text: TextSpan(
@@ -117,7 +117,7 @@ class CreateTaskView extends StatelessWidget{
                      if (_formKey.currentState?.saveAndValidate() == true) {
 
                          await model.addToTaskList(_formKey.currentState!.value);
-                       // Navigator.pop(context);
+                         Navigator.pop(context);
                      }
                    },
                  ),

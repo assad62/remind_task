@@ -1,15 +1,53 @@
 class TaskModel {
-  DateTime dateTime;
-  String title;
-  String description;
-  bool remindMe;
-  String? attachmentPath;
+  String? uuid;
+  Data? data;
 
+  TaskModel({required this.uuid,required this.data});
 
-  TaskModel({
-             required this.dateTime,
-             required this.title,
-             required this.description,
-             required this.remindMe,
-             this.attachmentPath});
+  TaskModel.fromJson(Map<String, dynamic> json) {
+    uuid = json['uuid'];
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['uuid'] = this.uuid;
+    if (this.data != null) {
+      data['data'] = this.data?.toJson();
+    }
+    return data;
+  }
+}
+
+class Data {
+  int? date;
+  String? title;
+  String? description;
+  String? attachmentPhoto;
+  bool? remindMe;
+
+  Data(
+      {this.date,
+        this.title,
+        this.description,
+        this.attachmentPhoto,
+        this.remindMe});
+
+  Data.fromJson(Map<String, dynamic> json) {
+    date = json['date'];
+    title = json['title'];
+    description = json['Description'];
+    attachmentPhoto = json['attachmentPhoto'];
+    remindMe = json['remindMe'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['date'] = this.date;
+    data['title'] = this.title;
+    data['Description'] = this.description;
+    data['attachmentPhoto'] = this.attachmentPhoto;
+    data['remindMe'] = this.remindMe;
+    return data;
+  }
 }

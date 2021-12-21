@@ -8,8 +8,15 @@ class TodayView extends StatelessWidget {
     return BaseView<TodayViewModel>(
         onModelReady: (model) => model.onFirstLoad(),
         builder: (context, model, children) => Scaffold(
-          body: Center(
-            child: Text("Today"),
+          body:ListView.builder(
+            itemCount: model.tasksList.length,
+            itemBuilder: (context, i){
+
+                return ListTile(
+                  title: Text("${model.tasksList[i].data?.description ?? ""}"),
+                );
+
+            },
           ),
           floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.black,
