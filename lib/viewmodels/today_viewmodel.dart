@@ -4,7 +4,7 @@ import 'package:flutter_starter_app/common/navigation_service.dart';
 import 'package:flutter_starter_app/common/viewstate.dart';
 import 'package:flutter_starter_app/models/task_model.dart';
 import 'package:flutter_starter_app/ui/router.dart';
-import 'package:flutter_starter_app/units/read/read_task_impl.dart';
+import 'package:flutter_starter_app/units/read_task/read_task_impl.dart';
 
 import '../locator.dart';
 

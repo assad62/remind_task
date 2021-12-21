@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_starter_app/database/app_database_service.dart';
 import 'package:flutter_starter_app/models/task_model.dart';
-import 'package:flutter_starter_app/units/read/service/read_task_service.dart';
+import 'package:flutter_starter_app/units/read_task/service/read_task_service.dart';
 import 'package:sembast/sembast.dart';
 
 class ReadTaskService implements IReadTaskService{

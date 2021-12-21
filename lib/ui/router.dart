@@ -7,7 +7,7 @@ class AppRoutes{
   static const String homeRoute ="home";
   static const String loginPageRoute = "login";
   static const String newTaskPageRoute = "new_task";
-  static const String createTaskPageRoute = "create";
+  static const String createTaskPageRoute = "create_task";
 }
 
 class AppRouter {
