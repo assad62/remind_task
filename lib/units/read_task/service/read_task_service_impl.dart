@@ -20,6 +20,7 @@ class ReadTaskService implements IReadTaskService{
 
     }
 
+    print("tasks length is ${tasks.length}");
     return tasks;
   }
 

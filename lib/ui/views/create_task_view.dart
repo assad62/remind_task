@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_starter_app/common/base_view.dart';
 import 'package:flutter_starter_app/viewmodels/create_task_viewmodel.dart';
+import 'package:form_builder_extra_fields/form_builder_extra_fields.dart';
 import 'package:form_builder_image_picker/form_builder_image_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
+
 
 class CreateTaskView extends StatelessWidget{
 
@@ -28,28 +31,11 @@ class CreateTaskView extends StatelessWidget{
        body: Padding(
          padding: const EdgeInsets.all(14.0),
          child: FormBuilder(
-
            key: _formKey,
            child: Column(
              children: [
-               FormBuilderDateTimePicker(
-                 name: 'date',
-                 alwaysUse24HourFormat: false,
-                 format: DateFormat("yyyy-MM-dd hh:mm a"),
-                 inputType: InputType.both,
-                 decoration: InputDecoration(
-                   labelText: 'Time',
-
-
-                 ),
-                 initialTime: TimeOfDay(hour: 8, minute: 0),
-                 initialValue: DateTime.now(),
-
-               ),
-               SizedBox(height: 20,),
                FormBuilderTextField(
                  name: 'title',
-
                  decoration: InputDecoration(
                      border: OutlineInputBorder(
                        // width: 0.0 produces a thin "hairline" border
@@ -61,13 +47,16 @@ class CreateTaskView extends StatelessWidget{
                      ),
                      labelText: 'Title'
                  ),
+                 validator: FormBuilderValidators.compose([
+                   FormBuilderValidators.required(context),
+                 ]),
                ),
                SizedBox(height: 20,),
                FormBuilderTextField(
                  textAlign: TextAlign.start,
                  textAlignVertical: TextAlignVertical.center,
                  name: 'Description',
-                 maxLines: 10,
+                 maxLines: 3,
                  decoration: InputDecoration(
                      alignLabelWithHint: true,
                      border: OutlineInputBorder(
@@ -81,6 +70,47 @@ class CreateTaskView extends StatelessWidget{
                      labelText: 'description'
                  ),
                ),
+               FormBuilderDateTimePicker(
+                 name: 'startDate',
+                firstDate: DateTime.now(),
+                 alwaysUse24HourFormat: false,
+                 format: DateFormat("yyyy-MM-dd hh:mm a"),
+                 inputType: InputType.both,
+                 decoration: InputDecoration(
+                   labelText: 'Start Time',
+
+
+                 ),
+                 initialTime: TimeOfDay(hour: 8, minute: 0),
+                 initialValue: DateTime.now(),
+
+               ),
+               FormBuilderColorPickerField(
+                 name: 'color_picker',
+                 initialValue: Colors.yellow,
+                 // readOnly: true,
+                 colorPickerType: ColorPickerType.materialPicker,
+                 decoration: const InputDecoration(labelText: 'Color Picker'),
+               ),
+               FormBuilderDateTimePicker(
+                 name: 'endDate',
+                 alwaysUse24HourFormat: false,
+                 format: DateFormat("yyyy-MM-dd hh:mm a"),
+                 inputType: InputType.both,
+                 decoration: InputDecoration(
+                   labelText: 'End Time',
+
+
+                 ),
+                 initialTime: TimeOfDay(hour: 8, minute: 0),
+                 initialValue: DateTime.now(),
+
+               ),
+
+
+
+               SizedBox(height: 20,),
+
                FormBuilderImagePicker(
                  name: 'attachmentPhoto',
                  decoration: const InputDecoration(labelText: 'Pick Photos'),
