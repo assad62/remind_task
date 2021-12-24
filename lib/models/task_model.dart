@@ -21,6 +21,8 @@ class TaskModel {
 
 class Data {
   int? date;
+  int? startTime;
+  int? endTime;
   String? title;
   String? description;
   String? attachmentPhoto;
@@ -28,6 +30,8 @@ class Data {
 
   Data(
       {this.date,
+        this.startTime,
+        this.endTime,
         this.title,
         this.description,
         this.attachmentPhoto,
@@ -35,6 +39,8 @@ class Data {
 
   Data.fromJson(Map<String, dynamic> json) {
     date = json['date'];
+    startTime = json['startTime'];
+    endTime = json['endTime'];
     title = json['title'];
     description = json['Description'];
     attachmentPhoto = json['attachmentPhoto'];
@@ -44,6 +50,8 @@ class Data {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['date'] = this.date;
+    data['endTime'] = this.endTime;
+    data['startTime'] = this.startTime;
     data['title'] = this.title;
     data['Description'] = this.description;
     data['attachmentPhoto'] = this.attachmentPhoto;

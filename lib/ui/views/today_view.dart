@@ -13,7 +13,7 @@ class TodayView extends StatelessWidget {
             itemBuilder: (context, i){
 
                 return ListTile(
-                  title: Text("${model.tasksList[i].data?.description ?? ""}"),
+                  title: Text("${model.tasksList[i].data?.title ?? ""}"),
                 );
 
             },

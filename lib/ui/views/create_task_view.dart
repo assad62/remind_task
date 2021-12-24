@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_starter_app/common/base_view.dart';
+import 'package:flutter_starter_app/units/date_transform/task_date_service_impl.dart';
 import 'package:flutter_starter_app/viewmodels/create_task_viewmodel.dart';
 import 'package:form_builder_extra_fields/form_builder_extra_fields.dart';
 import 'package:form_builder_image_picker/form_builder_image_picker.dart';
@@ -34,6 +35,14 @@ class CreateTaskView extends StatelessWidget{
            key: _formKey,
            child: Column(
              children: [
+               Row(
+                 children: [
+                   Text("Date", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                   SizedBox(width: 20,),
+                   Text(TaskDateService().formatDateNowToYear(),style: TextStyle(fontSize: 18),)
+                 ],
+               ),
+               SizedBox(height: 20,),
                FormBuilderTextField(
                  name: 'title',
                  decoration: InputDecoration(
@@ -55,7 +64,7 @@ class CreateTaskView extends StatelessWidget{
                FormBuilderTextField(
                  textAlign: TextAlign.start,
                  textAlignVertical: TextAlignVertical.center,
-                 name: 'Description',
+                 name: 'description',
                  maxLines: 3,
                  decoration: InputDecoration(
                      alignLabelWithHint: true,
@@ -67,15 +76,17 @@ class CreateTaskView extends StatelessWidget{
                        ),
                        //borderSide: const BorderSide(),
                      ),
-                     labelText: 'description'
+                     labelText: 'Description'
                  ),
                ),
+               SizedBox(height: 5,),
                FormBuilderDateTimePicker(
-                 name: 'startDate',
-                firstDate: DateTime.now(),
+                 name: 'startTime',
+                 firstDate: DateTime.now(),
                  alwaysUse24HourFormat: false,
-                 format: DateFormat("yyyy-MM-dd hh:mm a"),
-                 inputType: InputType.both,
+                 format: DateFormat("hh:mm a"),
+
+                 inputType: InputType.time,
                  decoration: InputDecoration(
                    labelText: 'Start Time',
 
@@ -85,28 +96,28 @@ class CreateTaskView extends StatelessWidget{
                  initialValue: DateTime.now(),
 
                ),
-               FormBuilderColorPickerField(
-                 name: 'color_picker',
-                 initialValue: Colors.yellow,
-                 // readOnly: true,
-                 colorPickerType: ColorPickerType.materialPicker,
-                 decoration: const InputDecoration(labelText: 'Color Picker'),
-               ),
+               SizedBox(height: 5,),
                FormBuilderDateTimePicker(
                  name: 'endDate',
                  alwaysUse24HourFormat: false,
-                 format: DateFormat("yyyy-MM-dd hh:mm a"),
-                 inputType: InputType.both,
+                 format: DateFormat("hh:mm a"),
+                 inputType: InputType.time,
                  decoration: InputDecoration(
                    labelText: 'End Time',
 
 
                  ),
                  initialTime: TimeOfDay(hour: 8, minute: 0),
-                 initialValue: DateTime.now(),
+                 initialValue: DateTime.now().add(Duration(minutes: 30)),
 
                ),
-
+               SizedBox(height: 5,),
+               FormBuilderColorPickerField(
+                 name: 'color_picker',
+                 initialValue: Colors.red,
+                 colorPickerType: ColorPickerType.blockPicker,
+                 decoration: const InputDecoration(labelText: 'Color Code'),
+               ),
 
 
                SizedBox(height: 20,),
@@ -132,7 +143,7 @@ class CreateTaskView extends StatelessWidget{
                  ),
 
                ),
-               const SizedBox(height: 50),
+               SizedBox(height: 50),
                SizedBox(
                  width:200,
                  height:50,
