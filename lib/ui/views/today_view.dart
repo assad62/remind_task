@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:flutter_starter_app/common/base_view.dart';
+import 'package:flutter_starter_app/models/task_model.dart';
 import 'package:flutter_starter_app/viewmodels/today_viewmodel.dart';
 
 class TodayView extends StatelessWidget {
+  
+  
+  String getTime(TaskModel model){
+    return "gekki";
+  }
+  
+  
   @override
   Widget build(BuildContext context) {
     return BaseView<TodayViewModel>(
@@ -25,9 +34,24 @@ class TodayView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("${model.tasksList[i].data?.title ?? ""}",style: TextStyle(fontSize: 18),),
+                          SizedBox(height: 5,),
                           Text("${model.tasksList[i].data?.description ?? ""}",style: TextStyle(fontSize: 14)),
+                          SizedBox(height: 20,),
+                          Text(getTime(model.tasksList![i]),style: TextStyle(fontSize: 12)),
+                          SizedBox(height: 5,),
                         ],
                       ),
+                      Spacer(),
+                      Visibility(
+                        visible: model.tasksList[i].data?.attachmentPhoto !=null ,
+                          child: Container(
+                              height: 100,
+                              width: 100,
+                              child: Image.file(
+                                  File(model.tasksList[i].data?.attachmentPhoto ?? ""),
+                                fit: BoxFit.cover,
+                              ))
+                      )
 
                     ],
                   )

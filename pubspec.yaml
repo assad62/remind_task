@@ -33,6 +33,7 @@ dependencies:
   form_builder_image_picker: ^2.0.0
   form_builder_validators: ^7.2.0
   form_builder_extra_fields: ^7.0.0
+  permission_handler: ^8.3.0
   flutter:
     sdk: flutter
 

@@ -33,7 +33,7 @@ class CreateTaskView extends StatelessWidget{
          padding: const EdgeInsets.all(14.0),
          child: FormBuilder(
            key: _formKey,
-           child: Column(
+           child: ListView(
              children: [
                Row(
                  children: [

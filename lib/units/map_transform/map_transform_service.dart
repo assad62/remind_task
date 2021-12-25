@@ -1,3 +1,3 @@
 abstract class IMapTransformService{
-  Map<String,dynamic> convertDateTimeToEpoch(Map<String,dynamic> map);
+  Map<String,dynamic> convertMapForStorage(Map<String,dynamic> map);
 }
