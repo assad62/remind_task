@@ -113,7 +113,7 @@ class CreateTaskView extends StatelessWidget{
                ),
                SizedBox(height: 5,),
                FormBuilderColorPickerField(
-                 name: 'color_picker',
+                 name: 'colorPicker',
                  initialValue: Colors.red,
                  colorPickerType: ColorPickerType.blockPicker,
                  decoration: const InputDecoration(labelText: 'Color Code'),

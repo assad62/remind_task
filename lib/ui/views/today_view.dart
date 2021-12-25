@@ -18,7 +18,7 @@ class TodayView extends StatelessWidget {
                       Container(
                         width: 10,
                         height: 80,
-                        color: Colors.red,),
+                        color: Color(model.tasksList[i].data?.colorPicker ?? 0),),
                       SizedBox(width: 20,),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,

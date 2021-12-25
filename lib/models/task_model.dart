@@ -27,6 +27,7 @@ class Data {
   String? description;
   String? attachmentPhoto;
   bool? remindMe;
+  int? colorPicker;
 
   Data(
       {this.date,
@@ -34,10 +35,12 @@ class Data {
         this.endTime,
         this.title,
         this.description,
+        this.colorPicker,
         this.attachmentPhoto,
         this.remindMe});
 
   Data.fromJson(Map<String, dynamic> json) {
+    colorPicker= json['colorPicker'];
     date = json['date'];
     startTime = json['startTime'];
     endTime = json['endTime'];
@@ -56,6 +59,7 @@ class Data {
     data['description'] = this.description;
     data['attachmentPhoto'] = this.attachmentPhoto;
     data['remindMe'] = this.remindMe;
+    data['colorPicker'] = this.colorPicker;
     return data;
   }
 }
