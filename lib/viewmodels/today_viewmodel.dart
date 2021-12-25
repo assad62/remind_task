@@ -5,7 +5,6 @@ import 'package:flutter_starter_app/common/navigation_service.dart';
 import 'package:flutter_starter_app/common/viewstate.dart';
 import 'package:flutter_starter_app/models/task_model.dart';
 import 'package:flutter_starter_app/ui/router.dart';
-
 import '../locator.dart';
 
 class TodayViewModel extends BaseModel{
@@ -18,7 +17,7 @@ class TodayViewModel extends BaseModel{
 
    await Navigator.pushNamed(_context, AppRoutes.createTaskPageRoute);
    getTasks();
-   print("aaaaaa is on back first load");
+
   }
 
   void onFirstLoad() async{

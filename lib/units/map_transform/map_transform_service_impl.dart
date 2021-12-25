@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_starter_app/units/date_transform/task_date_service_impl.dart';
 import 'package:flutter_starter_app/units/map_transform/map_transform_service.dart';
 import 'package:image_picker/image_picker.dart';
 
 
 class MapTransformService extends IMapTransformService{
+
+  var _dateTaskService = TaskDateService();
 
   @override
   Map<String, dynamic> convertMapForStorage(Map<String, dynamic> map) {
@@ -15,7 +18,7 @@ class MapTransformService extends IMapTransformService{
 
       switch (value.runtimeType){
         case DateTime:
-          encodedMap[key] =  value.microsecondsSinceEpoch;
+          encodedMap[key] =  _dateTaskService.changeDateToMillisecEpoch(value);
           break;
         case MaterialColor:
            MaterialColor color = value;

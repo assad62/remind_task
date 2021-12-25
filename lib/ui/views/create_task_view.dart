@@ -98,7 +98,7 @@ class CreateTaskView extends StatelessWidget{
                ),
                SizedBox(height: 5,),
                FormBuilderDateTimePicker(
-                 name: 'endDate',
+                 name: 'endTime',
                  alwaysUse24HourFormat: false,
                  format: DateFormat("hh:mm a"),
                  inputType: InputType.time,
