@@ -22,6 +22,8 @@ class CreateTaskViewModel extends BaseModel{
            'data': _mapTransformService.convertDateTimeToEpoch(formMap),
          };
 
+         print("formMap is $formMap");
+         print("taskMap is $taskMap");
          await  _createTaskUnit.addTaskToDatabase(taskMap);
   }
 }

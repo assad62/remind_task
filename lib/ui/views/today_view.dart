@@ -12,8 +12,27 @@ class TodayView extends StatelessWidget {
             itemCount: model.tasksList.length,
             itemBuilder: (context, i){
 
-                return ListTile(
-                  title: Text("${model.tasksList[i].data?.title ?? ""}"),
+                return Card(
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 10,
+                        height: 80,
+                        color: Colors.red,),
+                      SizedBox(width: 20,),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("${model.tasksList[i].data?.title ?? ""}",style: TextStyle(fontSize: 18),),
+                          Text("${model.tasksList[i].data?.description ?? ""}",style: TextStyle(fontSize: 14)),
+                        ],
+                      ),
+
+                    ],
+                  )
+
+
                 );
 
             },

@@ -42,7 +42,7 @@ class Data {
     startTime = json['startTime'];
     endTime = json['endTime'];
     title = json['title'];
-    description = json['Description'];
+    description = json['description'];
     attachmentPhoto = json['attachmentPhoto'];
     remindMe = json['remindMe'];
   }
@@ -53,7 +53,7 @@ class Data {
     data['endTime'] = this.endTime;
     data['startTime'] = this.startTime;
     data['title'] = this.title;
-    data['Description'] = this.description;
+    data['description'] = this.description;
     data['attachmentPhoto'] = this.attachmentPhoto;
     data['remindMe'] = this.remindMe;
     return data;

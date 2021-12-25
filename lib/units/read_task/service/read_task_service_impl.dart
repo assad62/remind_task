@@ -16,11 +16,14 @@ class ReadTaskService implements IReadTaskService{
     List<TaskModel> tasks = [];
 
     for(RecordSnapshot<dynamic, dynamic> map in records){
-      tasks.add(TaskModel.fromJson(json.decode(map.value)));
+
+        tasks.add(TaskModel.fromJson(json.decode(map.value)));
 
     }
 
-    print("tasks length is ${tasks.length}");
+    tasks.forEach((element) {
+      print("element is ${element.data?.description}");
+    });
     return tasks;
   }
 

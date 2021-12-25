@@ -8,6 +8,7 @@ class ReadTaskRepository implements IReadTaskRepository{
 
   @override
   Future<List<TaskModel>> getAllTasks() async{
+
     return await _service.getAllTasks();
   }
 
