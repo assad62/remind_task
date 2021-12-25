@@ -1,4 +1,6 @@
-import 'package:flutter_starter_app/units/create_task/service/create_task_service_impl.dart';
+
+import 'package:flutter_starter_app/app_units_of_work/create_task/service/create_task_service_impl.dart';
+
 import 'create_task_repository.dart';
 
 class CreateTaskRepository implements ICreateTaskRepo{

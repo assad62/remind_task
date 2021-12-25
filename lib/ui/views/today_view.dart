@@ -7,9 +7,7 @@ import 'package:flutter_starter_app/viewmodels/today_viewmodel.dart';
 class TodayView extends StatelessWidget {
   
   
-  String getTime(TaskModel model){
-    return "gekki";
-  }
+
   
   
   @override
@@ -33,11 +31,11 @@ class TodayView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("${model.tasksList[i].data?.title ?? ""}",style: TextStyle(fontSize: 18),),
+                          Text("${model.tasksList[i].data?.title ?? ""}",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                           SizedBox(height: 5,),
                           Text("${model.tasksList[i].data?.description ?? ""}",style: TextStyle(fontSize: 14)),
                           SizedBox(height: 20,),
-                          Text(getTime(model.tasksList![i]),style: TextStyle(fontSize: 12)),
+                          Text(model.getTime(model.tasksList[i]),style: TextStyle(fontSize: 12)),
                           SizedBox(height: 5,),
                         ],
                       ),
@@ -45,8 +43,8 @@ class TodayView extends StatelessWidget {
                       Visibility(
                         visible: model.tasksList[i].data?.attachmentPhoto !=null ,
                           child: Container(
-                              height: 100,
-                              width: 100,
+                              height: 80,
+                              width: 80,
                               child: Image.file(
                                   File(model.tasksList[i].data?.attachmentPhoto ?? ""),
                                 fit: BoxFit.cover,

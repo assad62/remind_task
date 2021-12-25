@@ -1,5 +1,5 @@
+import 'package:flutter_starter_app/app_units_of_work/create_task/create_task_impl.dart';
 import 'package:flutter_starter_app/common/base_model.dart';
-import 'package:flutter_starter_app/units/create_task/create_task_impl.dart';
 import 'package:flutter_starter_app/units/map_transform/map_transform_service_impl.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:uuid/uuid.dart';
@@ -28,6 +28,6 @@ class CreateTaskViewModel extends BaseModel{
 
          print("formMap is $formMap");
          print("taskMap is $taskMap");
-         await  _createTaskUnit.addTaskToDatabase(taskMap);
+         Future.value(_createTaskUnit.addTaskToDatabase(taskMap));
   }
 }

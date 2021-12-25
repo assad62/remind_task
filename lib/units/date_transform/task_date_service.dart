@@ -1,5 +1,6 @@
 abstract class ITaskDateService{
   int changeDateToMillisecEpoch(DateTime date);
-  DateTime changeDateToString(int date);
-  String formatDateNowToYear();
+  DateTime changeMiliSecEpochToDateTime(int date);
+  String formatDateTimeToString(int date);
+  String formatDateNowToYearAsString();
 }

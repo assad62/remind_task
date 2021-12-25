@@ -39,7 +39,7 @@ class CreateTaskView extends StatelessWidget{
                  children: [
                    Text("Date", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                    SizedBox(width: 20,),
-                   Text(TaskDateService().formatDateNowToYear(),style: TextStyle(fontSize: 18),)
+                   Text(TaskDateService().formatDateNowToYearAsString(),style: TextStyle(fontSize: 18),)
                  ],
                ),
                SizedBox(height: 20,),

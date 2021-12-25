@@ -8,15 +8,21 @@ class TaskDateService implements ITaskDateService{
   }
 
   @override
-  DateTime changeDateToString(int dateMillisecondsEpoch) {
+  String formatDateTimeToString(int dateMillisecondsEpoch) {
     DateTime date = new DateTime.fromMillisecondsSinceEpoch(dateMillisecondsEpoch);
-    return date;
+    return date.toString();
   }
 
   @override
-  String formatDateNowToYear() {
+  String formatDateNowToYearAsString() {
 
     return DateFormat.yMMMd().format(DateTime.now());
+  }
+
+  @override
+  DateTime changeMiliSecEpochToDateTime(int dateMiliSecEpoch) {
+    DateTime date = new DateTime.fromMillisecondsSinceEpoch(dateMiliSecEpoch);
+    return date;
   }
   
 }
