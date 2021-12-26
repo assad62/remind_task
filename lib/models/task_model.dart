@@ -1,17 +1,19 @@
 class TaskModel {
   String? uuid;
   Data? data;
-
-  TaskModel({required this.uuid,required this.data});
+  String? date;
+  TaskModel({required this.uuid,required this.data, required this.date});
 
   TaskModel.fromJson(Map<String, dynamic> json) {
     uuid = json['uuid'];
+    date = json['date'];
     data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['uuid'] = this.uuid;
+    data['date'] = this.date;
     if (this.data != null) {
       data['data'] = this.data?.toJson();
     }
@@ -20,7 +22,7 @@ class TaskModel {
 }
 
 class Data {
-  int? date;
+
   int? startTime;
   int? endTime;
   String? title;
@@ -30,7 +32,7 @@ class Data {
   int? colorPicker;
 
   Data(
-      {this.date,
+      {
         this.startTime,
         this.endTime,
         this.title,
@@ -41,7 +43,7 @@ class Data {
 
   Data.fromJson(Map<String, dynamic> json) {
     colorPicker= json['colorPicker'];
-    date = json['date'];
+
     startTime = json['startTime'];
     endTime = json['endTime'];
     title = json['title'];
@@ -52,7 +54,7 @@ class Data {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['date'] = this.date;
+
     data['endTime'] = this.endTime;
     data['startTime'] = this.startTime;
     data['title'] = this.title;

@@ -9,7 +9,29 @@ class CreateTaskService implements ICreateTaskService{
   Future<void> _saveTaskToLocalDb(Map<String,dynamic> taskMap) async{
       print("taskMap save to local db is $taskMap");
        var db = await AppDatabaseService().getAppDataBase();
-      _store.record(taskMap["uuid"]).put(db, json.encode(taskMap));
+
+
+       print("******");
+       print("***about to save");
+
+
+       await _store.record(taskMap["uuid"]).put(db, json.encode(taskMap));
+       //try{
+       //   _store.record(taskMap["uuid"]).put(db, json.encode(taskMap)).
+       //   catchError((e)=>print(e));
+
+       // }
+       // catch(e){
+       //   print("e is $e");
+       // }
+
+      print("**save complete");
+
+
+
+
+
+
   }
 
   @override

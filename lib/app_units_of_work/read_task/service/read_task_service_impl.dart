@@ -17,15 +17,17 @@ class ReadTaskService implements IReadTaskService{
     var finder = Finder();
     var records = await _store.find(await AppDatabaseService().getAppDataBase(), finder: finder);
     List<TaskModel> tasks = [];
-
+    print("inside get all tasks from db}");
     for(RecordSnapshot<dynamic, dynamic> map in records){
-
+        print("map.value is ${map.value}");
         tasks.add(TaskModel.fromJson(json.decode(map.value)));
 
     }
 
+
+
     tasks.forEach((element) {
-      print("element is ${element.data?.description}");
+      print("element is ${element.data?.title}");
     });
     return tasks;
   }
