@@ -16,4 +16,16 @@ class ReadTaskRepository implements IReadTaskRepository{
     return _service.getFormattedStartEndTime(starTime,endTime);
   }
 
+  @override
+  Future<List<TaskModel>?> getTasksForDay(DateTime day) async{
+     return  _service.getTasksForDay(day);
+  }
+
+  @override
+  Future<Map<String, List<TaskModel>>> getTasksForMonth(DateTime day) {
+    return _service.getTasksForMonth(day);
+  }
+
+
+
 }

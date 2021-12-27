@@ -16,4 +16,13 @@ class ReadTaskUnit implements IReadTaskUnit{
     return  _repo.getFormattedStartEndTime(starTime,endTime);
   }
 
+  Future<List<TaskModel>?> getTasksForDay(DateTime day) {
+    return _repo.getTasksForDay(day);
+  }
+
+  @override
+  Future<Map<String, List<TaskModel>>> getTasksForMonth(DateTime day) {
+     return _repo.getTasksForMonth(day);
+  }
+
 }
