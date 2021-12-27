@@ -14,7 +14,7 @@ class CalendarView extends StatefulWidget {
 
 class _CalendarViewState extends State<CalendarView> {
   DateTime? _selectedDay;
-
+  CalendarFormat _calendarFormat = CalendarFormat.twoWeeks;
 
   var _focusedDay = DateTime.now();
 
@@ -29,9 +29,15 @@ class _CalendarViewState extends State<CalendarView> {
                 body: Column(
                 children: [
                  TableCalendar(
+                   calendarFormat: _calendarFormat,
+                   // availableCalendarFormats: {
+                   //   CalendarFormat.week:"Month",
+                   //   CalendarFormat.month:"Week",
+                   //
+                   // },
                   headerStyle: HeaderStyle(
                     formatButtonShowsNext: true,
-                    formatButtonVisible: false,
+                    formatButtonVisible:false,
                     titleCentered: true,
                     headerPadding: EdgeInsets.only(bottom: 16),
                     headerMargin: EdgeInsets.zero,
@@ -39,6 +45,11 @@ class _CalendarViewState extends State<CalendarView> {
                   selectedDayPredicate: (day) {
                     return isSameDay(_selectedDay, day);
                   },
+                   onFormatChanged: (format) {
+                     if (_calendarFormat != format) {
+                       setState(() => _calendarFormat = format);
+                     }
+                   },
                   onDaySelected: (selectedDay, focusedDay) {
 
 
