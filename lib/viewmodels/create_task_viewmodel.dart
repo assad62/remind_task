@@ -8,37 +8,46 @@ import 'package:uuid/uuid.dart';
 
 class CreateTaskViewModel extends BaseModel{
 
-
+  late var _passedDate ;
   var _date = '';
   var _uuid = Uuid();
   var _createTaskUnit = CreateTaskUnit();
   var _mapTransformService  = MapTransformService();
 
   void onFirstLoad() async{
-   _date = TaskDateService().formatDateNowToYearAsString();
+
   }
 
   Future<void> addToTaskList(Map<String, dynamic> formMap) async {
 
 
-
-
-
-
-
-         //formMap["attachmentPhoto"] = filePath;
-         Map<String,dynamic> taskMap = {
+        Map<String,dynamic> taskMap = {
            'uuid': _uuid.v4().toString(),
            'date': _date,
            'data': _mapTransformService.convertMapForStorage(formMap),
          };
 
-         print("formMap is $formMap");
-         print("taskMap is $taskMap");
+
         await _createTaskUnit.addTaskToDatabase(taskMap);
   }
 
   String getTaskDate() {
-   return _date;
+
+    if(_passedDate !=null){
+      _date = TaskDateService().formatDateToYearAsString(_passedDate);
+
+      return _date;
+    }
+
+      _date = TaskDateService().formatDateNowToYearAsString();
+      return _date;
+
+
+
+
+  }
+
+  void initPassedData(DateTime selectedDate) {
+      _passedDate = selectedDate;
   }
 }

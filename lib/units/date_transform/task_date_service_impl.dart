@@ -26,5 +26,11 @@ class TaskDateService implements ITaskDateService{
     DateTime date = new DateTime.fromMillisecondsSinceEpoch(dateMiliSecEpoch);
     return date;
   }
+
+  @override
+  String formatDateToYearAsString(DateTime date) {
+
+    return DateFormat.yMMMd().format(date);
+  }
   
 }

@@ -15,7 +15,10 @@ class TodayViewModel extends BaseModel{
   List<TaskModel> tasksList = [];
   void addNewTask() async{
 
-   await Navigator.pushNamed(_context, AppRoutes.createTaskPageRoute);
+   await Navigator.pushNamed(_context,
+       AppRoutes.createTaskPageRoute,
+       arguments: SelectedDate()
+   );
    getTasks();
 
   }
@@ -28,7 +31,7 @@ class TodayViewModel extends BaseModel{
 
   void getTasks() async{
      setState(ViewState.Busy);
-     tasksList = await _readTaskUnit.getAllTasks();
+     tasksList = await _readTaskUnit.getTasksForDay(DateTime.now()) ?? [];
      setState(ViewState.Idle);
   }
 

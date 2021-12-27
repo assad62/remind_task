@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_starter_app/common/base_view.dart';
+import 'package:flutter_starter_app/ui/router.dart';
 import 'package:flutter_starter_app/units/date_transform/task_date_service_impl.dart';
 import 'package:flutter_starter_app/viewmodels/create_task_viewmodel.dart';
 import 'package:form_builder_extra_fields/form_builder_extra_fields.dart';
@@ -10,14 +11,25 @@ import 'package:intl/intl.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
 
-class CreateTaskView extends StatelessWidget{
+class CreateTaskView extends StatefulWidget{
 
+  final DateTime? selectedDate;
   static const CREATE_TASK_TITLE ="Add Task";
+
+  CreateTaskView( {this.selectedDate});
+
+
+  @override
+  State<CreateTaskView> createState() => _CreateTaskViewState();
+}
+
+class _CreateTaskViewState extends State<CreateTaskView> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
   Widget build(BuildContext context) {
     return BaseView<CreateTaskViewModel>(
+        initPassedData: (model) =>model.initPassedData(widget.selectedDate ?? DateTime.now()),
         onModelReady: (model) => model.onFirstLoad(),
     builder: (context, model, children) =>
         Scaffold(
@@ -26,7 +38,7 @@ class CreateTaskView extends StatelessWidget{
            backgroundColor: Colors.white,
            foregroundColor: Colors.black,
            centerTitle: false,
-           title: Text(CREATE_TASK_TITLE, style: GoogleFonts.pacifico(
+           title: Text(CreateTaskView.CREATE_TASK_TITLE, style: GoogleFonts.pacifico(
              textStyle: TextStyle(color: Colors.black, letterSpacing: .85, fontStyle: FontStyle.normal, fontSize: 28),)
            )),
        body: Padding(
@@ -71,12 +83,12 @@ class CreateTaskView extends StatelessWidget{
                    decoration: InputDecoration(
                        alignLabelWithHint: true,
                        border: OutlineInputBorder(
-                         // width: 0.0 produces a thin "hairline" border
+
                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
                          borderSide:  BorderSide(
                            color: Colors.black,
                          ),
-                         //borderSide: const BorderSide(),
+
                        ),
                        labelText: 'Description'
                    ),
@@ -87,12 +99,9 @@ class CreateTaskView extends StatelessWidget{
                    firstDate: DateTime.now(),
                    alwaysUse24HourFormat: false,
                    format: DateFormat("hh:mm a"),
-
                    inputType: InputType.time,
                    decoration: InputDecoration(
                      labelText: 'Start Time',
-
-
                    ),
                    initialTime: TimeOfDay(hour: 8, minute: 0),
                    initialValue: DateTime.now(),
@@ -106,8 +115,6 @@ class CreateTaskView extends StatelessWidget{
                    inputType: InputType.time,
                    decoration: InputDecoration(
                      labelText: 'End Time',
-
-
                    ),
                    initialTime: TimeOfDay(hour: 8, minute: 0),
                    initialValue: DateTime.now().add(Duration(minutes: 30)),
@@ -174,7 +181,6 @@ class CreateTaskView extends StatelessWidget{
      )
     );
   }
-
 }
 
 

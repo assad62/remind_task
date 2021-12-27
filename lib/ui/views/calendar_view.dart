@@ -42,7 +42,8 @@ class _CalendarViewState extends State<CalendarView> {
                   onDaySelected: (selectedDay, focusedDay) {
 
 
-                    if (!isSameDay(_selectedDay, selectedDay)) {
+
+                    //if (!isSameDay(_selectedDay, selectedDay)) {
 
                       setState(() {
                         _selectedDay = selectedDay;
@@ -50,7 +51,7 @@ class _CalendarViewState extends State<CalendarView> {
                       });
 
 
-                    }
+                   // }
 
                   },
                   eventLoader: (day)  {
@@ -77,14 +78,12 @@ class _CalendarViewState extends State<CalendarView> {
 
                 ),
                   Expanded(
-                    child: FutureBuilder<List<TaskModel>?>(
-                        future: model.getEventsFoSelectedDay(_focusedDay!),
-                        builder:(context, AsyncSnapshot<List<TaskModel>?> snapshot) {
+                    child: FutureBuilder<List<TaskModel?>>(
+                        future: model.getEventsFoSelectedDay(_selectedDay ?? DateTime.now()),
+                        builder:(context, AsyncSnapshot<List<TaskModel?>> snapshot) {
                            if(snapshot.data?.length == 0) {
                              return Container(
                                  height: double.maxFinite,
-
-
                                  child: Center(child: Text("No Events",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)))
                              );
                            }
@@ -113,19 +112,19 @@ class _CalendarViewState extends State<CalendarView> {
                                               Container(
                                                 height: 80,
                                                 width: 6,
-                                                color: Color(snapshot.data?[index].data?.colorPicker ?? 0),
+                                                color: Color(snapshot.data?[index]?.data?.colorPicker ?? 0),
                                               ),
                                               SizedBox(width: 10,),
                                               Column(
                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
-                                                  Text('${ snapshot.data?[index].data?.title}',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                                                  Text('${ snapshot.data?[index].data?.description}', style: TextStyle(fontSize: 16)),
+                                                  Text('${ snapshot.data?[index]?.data?.title}',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                                                  Text('${ snapshot.data?[index]?.data?.description}', style: TextStyle(fontSize: 16)),
                                                   SizedBox(height: 10,),
                                                   Row(
                                                     children: [
-                                                      Text( DateFormat('hh:mm a').format(DateTime.fromMillisecondsSinceEpoch(snapshot.data?[index].data?.startTime ?? 0)).toString()+ ' - ', style: TextStyle(fontSize: 14),),
-                                                      Text( DateFormat('hh:mm a').format(DateTime.fromMillisecondsSinceEpoch(snapshot.data?[index].data?.endTime ?? 0)).toString(), style: TextStyle(fontSize: 14),),
+                                                      Text( DateFormat('hh:mm a').format(DateTime.fromMillisecondsSinceEpoch(snapshot.data?[index]?.data?.startTime ?? 0)).toString()+ ' - ', style: TextStyle(fontSize: 14),),
+                                                      Text( DateFormat('hh:mm a').format(DateTime.fromMillisecondsSinceEpoch(snapshot.data?[index]?.data?.endTime ?? 0)).toString(), style: TextStyle(fontSize: 14),),
                                                     ],
                                                   ),
 
@@ -151,7 +150,7 @@ class _CalendarViewState extends State<CalendarView> {
                 floatingActionButton:  FloatingActionButton(
               backgroundColor: Colors.black,
                onPressed: (){
-                 model.addNewTask(_focusedDay);
+                 model.addNewTask(_selectedDay!);
                },
 
               child: Icon(Icons.add),

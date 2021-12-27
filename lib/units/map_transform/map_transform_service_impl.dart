@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter_app/units/date_transform/task_date_service_impl.dart';
 import 'package:flutter_starter_app/units/map_transform/map_transform_service.dart';
-import 'package:image_picker/image_picker.dart';
+
 
 
 class MapTransformService extends IMapTransformService{

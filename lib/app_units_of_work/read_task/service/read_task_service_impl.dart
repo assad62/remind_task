@@ -22,6 +22,10 @@ class ReadTaskService implements IReadTaskService{
       tasks.add(TaskModel.fromJson(json.decode(map.value)));
     }
 
+    tasks.forEach((element) {
+      print("element is ${element.date}");
+    });
+
     return tasks;
   }
 
@@ -48,8 +52,13 @@ class ReadTaskService implements IReadTaskService{
   @override
   Future<List<TaskModel>> getTasksForDay(DateTime day) async {
 
+    print("inside get tasks for day");
     String date =  DateFormat.yMMMd().format(day);
     List<TaskModel> allTasks = await _getAllTasksFromDb();
+    allTasks.forEach((element) {
+      print("all tasks eee is ${element.date}");
+    });
+
 
     List<TaskModel> filteredTasks = allTasks.where((e) => e.date == date).toList();
 
@@ -67,16 +76,18 @@ class ReadTaskService implements IReadTaskService{
 
     DateTime now = new DateTime.now();
     DateTime lastDayOfMonth = new DateTime(now.year, now.month+1, 0);
-    print("N days: ${lastDayOfMonth.day}");
+
 
     List<TaskModel> allTasks = await _getAllTasksFromDb();
 
     for(int a=0;a<allTasks.length;a++){
-        String date = allTasks[0].date ?? "";
+        String date = allTasks[a].date ?? "";
+        print("date in get tasks for months is $date");
         tasksForMonth[date] = allTasks.where((element) => element.date == date).toList();
     }
 
 
+    print("tasks for month is $tasksForMonth");
 
      return tasksForMonth;
   }
